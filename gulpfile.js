@@ -1,27 +1,31 @@
 var gulp = require('gulp'),
-  connect = require('gulp-connect');
+  connect = require('gulp-connect'),
+  scss = require('gulp-sass');
 
 gulp.task('connect', function() {
   connect.server({
-    root: 'app',
+    root: './',
     port: 8888,
     livereload: true
   });
 });
 
 gulp.task('html', function () {
-  gulp.src('./app/*.html')
+  gulp.src('*.html')
     .pipe(connect.reload());
 });
 
-gulp.task('css', function () {
-  gulp.src('./app/*.css')
-    .pipe(connect.reload());
+gulp.task('scss', function(){
+	return gulp.src("dev/scss/styles.scss")
+	  .pipe(scss())
+	  .pipe(gulp.dest("prod/css"))
+	  .pipe(connect.reload());
 });
 
 gulp.task('watch', function () {
-  gulp.watch(['./app/index.html'], ['html']);
-  gulp.watch(['./app/*.css'], ['css']);
+  gulp.watch(['index.html'], ['html']);
+  gulp.watch(['./dev/scss/*.scss'], ['scss']);
 });
 
 gulp.task('default', ['connect', 'watch']);
+
