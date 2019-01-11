@@ -18,14 +18,14 @@ gulp.task('html', function () {
 gulp.task('scss', function(){
 	return gulp.src("dev/scss/styles.scss")
 	  .pipe(scss())
-	  .pipe(gulp.dest("prod/css"))
+	  .pipe(gulp.dest("dev/css"))
 	  .pipe(connect.reload());
 });
 
 gulp.task('watch', function () {
-  gulp.watch(['index.html'], ['html']);
-  gulp.watch(['./dev/scss/*.scss'], ['scss']);
+  gulp.watch(['index.html'], gulp.parallel('html'));
+  gulp.watch(['./dev/scss/*.scss'], gulp.parallel('scss'));
 });
 
-gulp.task('default', ['connect', 'watch']);
+gulp.task('default', gulp.parallel('watch', 'connect'));
 

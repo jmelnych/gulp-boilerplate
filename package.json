@@ -1,15 +1,15 @@
 {
-  "name": "lr",
+  "name": "gulp-boilerplate",
   "version": "1.0.0",
-  "description": "",
+  "description": "Gulp boilerplate 4",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "jmelnich",
   "license": "ISC",
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-connect": "^5.5.0",
     "gulp-sass": "^4.0.2"
   }
