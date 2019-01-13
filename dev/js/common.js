@@ -1,2 +1,3 @@
-var arr = [];
-console.log('12q1');
+var arr = ['dd'];
+console.log(arr);
+console.log('heeel');
